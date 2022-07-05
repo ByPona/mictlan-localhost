@@ -1,0 +1,294 @@
+body{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    background-image: url(bg_mic.jpg);
+    position: relative;
+    z-index: 0;
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+    height: 1300px;
+    align-items: center;
+}
+
+header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    border-bottom: solid 5px white;
+}
+
+.clientes
+{
+    text-align: left;
+    font-size: 30px;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.clientes:hover
+{
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid;
+}
+
+nav
+{
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+.logo{
+    display: flex;
+}
+
+.logo img{
+    height: 100px;
+    margin-top: 20px;
+
+}
+
+table{
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    border-collapse: collapse;
+    background-color: white;
+    height: 750px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+th, td{
+    padding: 10;
+    
+
+}
+
+thead{
+    border-bottom: solid 5px #E53935;
+    border-top: solid 5px #E53935;
+    background-color: black;
+    color: white;
+    height: 40px;
+}
+
+tr:hover td{
+    background-color: grey;
+    color: black;
+
+}
+
+tr:hover .inicio{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+tr:hover .final{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.item{
+    float: left;
+}
+
+#item2{
+    margin-left: 20px;
+    margin-top: 50px;
+    height: auto;
+}
+
+#form{
+    margin-top: 50px;
+    margin-left: 600px;
+}
+
+input{
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+#encabezado_pedido{
+    color: #E53935;
+}
+
+#boton_pedido{
+    margin-left: 55px;
+    margin-top: 5px;
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+#boton_pedido:hover{
+    background-color: black;
+    color: white;
+}
+
+#calleynum{
+    margin-left: 55px;
+    width: 400px;
+}
+
+#colonia{
+    margin-left: 50px;
+    width: 400px;
+}
+
+#upd{
+    margin-left: 46px;
+}
+
+#boton_update{
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+#boton_update:hover{
+    background-color: black;
+    color: white;
+}
+
+
+#telef{
+    margin-left: 50px;
+    width: 400px;
+}
+
+#entrecalles{
+    margin-left: 50px;
+    width: 400px;
+}
+
+#boton_domicilio{
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-left: 200px;
+}
+
+#boton_domicilio:hover{
+    background-color: black;
+    color: white;
+}
+
+#erase{
+    margin-left: 50px;
+}
+
+#boton_borrar{
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+#boton_borrar:hover{
+    background-color: black;
+    color: white;
+}
+
+#item3{
+    margin-left: 20px;
+    height: auto;
+    margin-bottom: 40px;
+}
+
+#item4{
+    height: auto;
+    margin-left: 200px;
+}
+
+#telefono_cliente
+{
+    margin-left: 43%;
+}
+
+#buscar_cliente_boton{
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+#buscar_cliente_boton:hover{
+    background-color: black;
+    color: white;
+}
+
+#item5{
+    height: auto;
+}
+
+.button_borrar {
+    display: block;
+    background: red;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    text-decoration: none;
+}
+
+.button_actualizar {
+    display: block;
+    background: aqua;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    text-decoration: none;
+}
+
+#enviado{
+    color: green;
+}
+
+#noenviado{
+    color: red;
+}
+
+#buscar_pedido_boton{
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+#buscar_pedido_boton:hover{
+    background-color: black;
+    color: white;
+}
+
+#logoutlink
+{
+
+    color: red;
+}

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href='{% static "css/style.css" %}' rel='stylesheet'/>
+    <title>Pedidos</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+            <img src="{% static 'imagenes/logo.png' %}" alt="logo">
+            </a>
+            <h2>Hamburguesas Mictlan</h2>
+        </div>
+
+        <h2>
+            PEDIDOS TOTALES
+        </h2>
+        <nav>
+            <h1>Recorreras todos los caminos </h1>
+            <h1>antes de encontrarte a ti mismo</h1>
+        </nav>
+    </header>
+
+    <form method="post">
+        {% csrf_token %}
+    <input type="text" name="buscar_pedido" placeholder="Fecha" id="telefono_cliente"><input type="submit" id="buscar_pedido_boton" value="Buscar">
+    </form>
+
+    <table class="item" id="item5" style="width: 97%">
+        <thead>
+            <th id="inicio_encabe" width="150px">Fecha</th>
+            <th width="50px">ID</th>
+            <th width="150px">Nombre</th>
+            <th width="100px">Cantidad</th>
+            <th width="100px">Precio Unitario</th>
+            <th width="200px">Descripcion Prod Extra</th>
+            <th width="150px">Precio Prod Extra</th>
+            <th width="100px">SubTotal</th>
+            <th width="150px">TotalPedido</th>
+            <th width="300px">Calle</th>
+            <th width="200px">Colonia</th>
+            <th width="300px">EntreCalles</th>
+            <th width="150px">Telefono</th>
+            <th id="fin_encabe">Accion</th>
+        </thead>
+        
+        <tbody>
+            {% for n in pedidos_ver %}
+            <tr>
+
+            <td class="inicio">{{n.fecha}}</td>
+            <td>{{n.id_pedido}}</td>
+            <td>{{n.nombre_pedido}}</td>
+            <td>{{n.cantidad}}</td>
+            <td>{{n.precio_unitario}}</td>
+            <td>{{n.descripcion}}</td>
+            <td>{{n.montextra}}</td>
+            <td>{{n.subtotal}}</td>
+            <td>{{n.total}}</td>
+            <td>{{n.calle}}</td>
+            <td>{{n.colonia}}</td>
+            <td>{{n.entrecalles}}</td>
+            <td>{{n.telefono}}</td>
+            <td class="final"> <a class="button_borrar" href="{% url 'eliminar_pedido' n.id %}">Eliminar</a> </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

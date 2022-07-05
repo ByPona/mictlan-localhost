@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link type="text/css" href='{% static "css/style.css" %}' rel='stylesheet'/>
+    
+    <title>Mictlan</title>
+
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="{% static 'imagenes/logo.png' %}" alt="logo">
+            <h2>Hamburguesas Mictlan</h2>
+            
+        </div>
+        
+            <a href="{% url 'clientes' %}" class="clientes">Clientes     </a>
+            <a href="{% url 'verpedidos' %}" class="clientes">PedidosTotales</a>
+            
+            <a id="logoutlink"href="{% url 'logout' %}">Logout</a>
+        <nav>
+            
+            <h1>Recorreras todos los caminos </h1>
+            <h1>antes de encontrarte a ti mismo</h1>
+        </nav>
+    </header>
+
+    <table class="item" id="item1" style="width: 30%">
+
+        <thead>
+            <th id="inicio_encabe">Nombre</th>
+            <th>Clave</th>
+            <th>Ingredientes</th>
+            <th id="fin_encabe">Precio</th>
+        </thead>
+
+        <tr>
+            <td class="inicio">Clasica</td>
+            <td>cla</td>
+            <td>Cebolla/Tocino</td>
+            <td class="final">$85</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Xochipilli</td>
+            <td>xoc</td>
+            <td>Cebolla</td>
+            <td class="final">$85</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Jaguar</td>
+            <td>jag</td>
+            <td>Chorizo/Jalapeño</td>
+            <td class="final">$90</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Quetzal</td>
+            <td>que</td>
+            <td>Guacamole</td>
+            <td class="final">$90</td>
+        </tr>
+        
+        <tr>
+            <td class="inicio">Chamuco</td>
+            <td>cha</td>
+            <td>Costra/Habanero</td>
+            <td class="final">$90</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Tlaloc</td>
+            <td>tla</td>
+            <td>Camarones</td>
+            <td class="final">$95</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Malinche</td>
+            <td>mal</td>
+            <td>Piña/Teriyaki</td>
+            <td class="final">$95</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Moctezuma</td>
+            <td>moc</td>
+            <td>Cebolla/Tocino</td>
+            <td class="final">$125</td>
+        </tr>
+
+        <thead>
+            <th></th>
+            <th>Adicionales</th>
+            <th></th>
+            <th></th>
+        </thead>
+
+        <tr>
+            <td class="inicio">Papas Mictlan</td>
+            <td>pm</td>
+            <td>Tocino/QuesoAmarillo</td>
+            <td class="final">$50</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Gueritos</td>
+            <td>gue</td>
+            <td>Queso/Sal</td>
+            <td class="final">$40</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Francesas</td>
+            <td>fra</td>
+            <td>Sal/Catsup</td>
+            <td class="final">$35</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Gajo</td>
+            <td>gaj</td>
+            <td>Catsup</td>
+            <td class="final">$40</td>
+        </tr>
+
+        <tr>
+            <td class="inicio">Aros Cebolla</td>
+            <td>ac</td>
+            <td>Catsup</td>
+            <td class="final">$35</td>
+        </tr>
+
+    </table>
+    
+    <div id="form">
+        
+        {% if telefono_exist != "" %}
+        <h1 id="encabezado_pedido">Pedido Numero {{id_num_pedido}} --- {{telefono_exist}}</h1> 
+        {% else %}
+        <h1 id="encabezado_pedido">Pedido Numero {{id_num_pedido}}</h1> 
+        {% endif %}
+        
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="id_pedido" placeholder="Num Pedido/rest"> <input id="telef" type="text" name="tel" placeholder="Telefono"><br>
+            <input type="text" name="cantidad" placeholder="Cantidad/NumPedido"><input id="calleynum" type="text" name="dom" placeholder="Calle y Num/Aqui"><br>
+             <input type="text" name="prod" placeholder="Producto"> <input id="colonia" type="text" name="col" placeholder="Colonia/Nombre Cliente"><br>
+            <input type="text" name="prodextra" placeholder="Producto Extra"> <input id="entrecalles" type="text" name="entre_calles" placeholder="EntreCalles/Referencia"><br>
+            <input type="text" name="montextra" placeholder="Monto Extra"> <input type="submit" id="boton_domicilio" value="Agregar Domicilio"><br>
+            <input type="submit" id="boton_pedido" value="Agregar Producto">
+             
+        </form>
+
+    </div>
+
+    <table class="item" id="item2" style="width: 65%">
+        <thead>
+            <tr>
+                <th width="50px">ID</th>
+                <th width="200px">Nombre</th>
+                <th width="100px">Cantidad</th>
+                <th width="100px">Precio Unitario</th>
+                <th width="350px">Descripcion Prod Extra</th>
+                <th width="100px">Mont Extra</th>
+                <th>SubTotal</th>
+                <th>Total</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in pedidos %}
+            <tr>
+                <td class="inicio">{{n.num_pedido}}</td>
+                <td>{{n.producto}}</td>
+                <td>{{n.cantidad}}</td>
+                <td>{{n.precio_unitario}}</td>
+                <td>{{n.prodextra}}</td>
+                <td>{{n.montoextra}}</td>
+                <td>{{n.total}}</td>
+                <td>{{n.totaltotales}}</td>
+                <td class="final"> <a class="button_borrar" href="{% url 'eliminar_lista' n.columna %}">Borrar</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+    <table class="item" id="item3" style="width: 98%" hi>
+        <thead>
+            <tr>
+            <th width="50px">ID</th>
+            <th width="200px">Nombre</th>
+            <th width="50px">Cantidad</th>
+            <th width="100px">Precio Unitario</th>
+            <th width="400px">Descripcion Prod Extra</th>
+            <th width="70px">MontoExtra</th>
+            <th width="100px">Subtotal</th>
+            <th width="100px">Total</th>
+            <th width="500px">Calle</th>
+            <th width="200px">Colonia</th>
+            <th width="700px">EntreCalles</th>
+            <th width="200px">Telefono</th>
+            <th width="100px">Estado</th>
+            <th>Accion</th>
+            </tr>
+        </thead>
+    
+
+    <tbody>
+        {% for n in pedidoscompletos %}
+        <tr>
+            <td class="inicio">{{n.id_pedido}}</td>
+            <td>{{n.nombre_pedido}}</td>
+            <td>{{n.cantidad}}</td>
+            <td>{{n.precio_unitario}}</td>
+            <td>{{n.descripcion}}</td>
+            <td>{{n.montextra}}</td>
+            <td>{{n.subtotal}}</td>
+            <td>{{n.total}}</td>
+            <td>{{n.calle}}</td>
+            <td>{{n.colonia}}</td>
+            <td>{{n.entrecalles}}</td>
+            <td>{{n.telefono}}</td>
+            {% if n.estado == "NoEnviado" %}
+            <td id="noenviado">{{n.estado}}</td>
+            {% else %}
+            <td id="enviado">{{n.estado}}</td>
+            {% endif %}
+
+            <td class="final"> <a class="button_actualizar" href="{% url 'actualizar_pedido' n.id %}">ACT</a> </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+
+</html>
+
+<!-- Se puede buscar una funcion para agregar la fecha cuando se estan haciendo las ventas y agregar el atributo a la base de datos junto con los domicilios--> 

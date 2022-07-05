@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href='{% static "css/style.css" %}' rel='stylesheet'/>
+    <title>Clientes</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+            <img src="{% static 'imagenes/logo.png' %}" alt="logo">
+            </a>
+            <h2>Hamburguesas Mictlan</h2>
+        </div>
+        <h2 >
+            CLIENTES REGISTRADOS
+        </h2>
+        <nav>
+            <h1>Recorreras todos los caminos </h1>
+            <h1>antes de encontrarte a ti mismo</h1>
+        </nav>
+    </header>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="buscar_cliente" placeholder="Telefono" id="telefono_cliente"><input type="submit" id="buscar_cliente_boton" value="Buscar">
+        <!--<input type="text" name="buscar_cliente_borrar" placeholder="Columna" id="telefono_cliente"><input type="submit" id="buscar_cliente_boton" value="Borrar">-->
+
+    </form>
+
+    <table class="item" id="item4" style="width: 80%">
+        <thead>
+            <tr>
+            <th id="inicio_encabe"width="200px">Telefono</th>
+            <th width="400px">Calle y Numero</th>
+            <th width="300px">Colonia</th>
+            <th>Entre Calles</th>
+            <th width="100px" id="fin_encabe">Accion</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            {% for n in cliente %}
+            <tr>
+                <td class="inicio">{{n.telefono}}</td>
+                <td>{{n.calle}}</td>
+                <td>{{n.colonia}}</td>
+                <td>{{n.entrecalles}}</td>
+                <td class="final"> <a class="button_borrar" href="{% url 'eliminar_cliente' n.id %}">Eliminar</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

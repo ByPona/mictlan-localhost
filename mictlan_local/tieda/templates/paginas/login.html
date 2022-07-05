@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href='{% static "css/cube.css" %}' rel='stylesheet'/>
+    <title>Login</title>
+</head>
+    
+<body>
+
+    <form id="formulario" method="post">
+
+        {% csrf_token %}
+        <h1 id="titulo">Login</h1><br>
+        <input type="text" id="usu" placeholder="Usuario" name="username"/>
+        <input type="password" id="pass"placeholder="Password" name="password"/><br><br>
+        <input type="submit" id="boton_usuario" value="Ingresar">
+
+    </form>
+
+    <div class="cube">
+        <div class="top"></div>
+        <div>
+            <span style="--i:0;">
+                <img class="img" src="{% static 'imagenes/logo.png' %}" alt="logo">
+            </span>
+            <span style="--i:1;">
+                <img class="img" src="{% static 'imagenes/logo.png' %}" alt="logo">
+            </span>
+            <span style="--i:2;">
+                <img class="img" src="{% static 'imagenes/logo.png' %}" alt="logo">
+            </span>
+            <span style="--i:3;">
+                <img class="img" src="{% static 'imagenes/logo.png' %}" alt="logo">
+            </span>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
