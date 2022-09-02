@@ -28,7 +28,7 @@ class Pedido(object):
 
 
 pedidos = []
-globals()['id_num_pedido'] = 1
+globals()['id_num_pedido'] = 0
 
 def home(request):
     
